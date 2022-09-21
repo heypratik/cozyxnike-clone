@@ -54,7 +54,7 @@ export default function Cart() {
                 animate={{opacity: 1, scale: 1}}
                 transition={{delay: 0.2}}
                 >
-                    <h1>Let's add some items to your cart</h1>
+                    <h1>Lets add some items to your cart</h1>
                     <FaShoppingCart />
                 </Empty>
                 )}
