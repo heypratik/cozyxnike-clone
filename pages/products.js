@@ -5,7 +5,8 @@ import Products from '../components/Products'
 import { Gallery } from '../styles/Gallery'
 import {AiFillTwitterCircle, AiFillGithub, AiFillLinkedin} from 'react-icons/ai'
 
-export default function Home() {
+
+export default function SS() {
 
   const [results] = useQuery({query: PRODUCT_QUERY})
   const {data, fetching, error} = results
@@ -23,16 +24,13 @@ export default function Home() {
       </Head>
 
       <main>
-        <div className='banner'>
-        <img width="100%" src="https://i.ibb.co/0XTkjJw/banne.jpg" alt='banner' />
-        </div>
         <Gallery>
         {products.map(product => 
         <Products {...product} key={product.attributes.slug}/>
         )}
         </Gallery>
       </main>
-          <footer>
+      <footer>
             <div className='col-one'>
               <p>Find us</p>
               <p>Gift Cards</p>

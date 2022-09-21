@@ -2,8 +2,21 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Roboto Mono', monospace;
+    margin: 0rem 3%;
+    background: #fff;
+    --primary: #2d2d2d;
+    --secondary: #535353;
+}
+
+h2 {
+  font-size: 1.2rem;
+  color: (var(--primary));
+}
+
+h3 {
+  font-size: 1rem;
+  color: (var(--secondary));
 }
 
 a {
@@ -13,14 +26,38 @@ a {
 
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+p {
+  line-height: 150%;
+}
+
+.banner > img {
+  border-radius: 20px;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  height: 50vh;
+  border-radius: 10px;
+  margin: 1.5rem 0rem;
+  display: flex;
+  padding: 2rem;
+  justify-content: space-between;
+}
+
+.col-one > p {
+  padding: 0.8rem 0rem;
+}
+
+.col-two > p {
+  padding: 0.8rem 0rem;
+
+}
+
+.col-three {
+  padding: 0.8rem 0rem;
 }
