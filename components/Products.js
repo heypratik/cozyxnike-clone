@@ -3,8 +3,7 @@ import Link from "next/link";
 
 function Products(props) {
   const { title, price, image, slug } = props.attributes;
-  let bannerImg = image.data.attributes.formats.thumbnail.url;
-
+  let bannerImg = image.data.attributes.formats.medium.url;
 
   return (
     <ProductStyle

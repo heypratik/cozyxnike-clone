@@ -4,7 +4,6 @@ import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 const {motion} = require('framer-motion')
 const stripe = require('stripe')(`${process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY}`)
-import Confetti from 'react-confetti'
 
 export async function getServerSideProps(params) {
     const order = await stripe.checkout.sessions.retrieve(
