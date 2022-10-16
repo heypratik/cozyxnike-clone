@@ -1,18 +1,21 @@
-import Head from 'next/head'
-import { useQuery } from 'urql'
-import {PRODUCT_QUERY} from '../lib/query'
-import Products from '../components/Products'
-import { Gallery } from '../styles/Gallery'
-import {AiFillTwitterCircle, AiFillGithub, AiFillLinkedin} from 'react-icons/ai'
+import Head from "next/head";
+import { useQuery } from "urql";
+import { PRODUCT_QUERY } from "../lib/query";
+import Products from "../components/Products";
+import { Gallery } from "../styles/Gallery";
+import {
+  AiFillTwitterCircle,
+  AiFillGithub,
+  AiFillLinkedin,
+} from "react-icons/ai";
 
 export default function Home() {
+  const [results] = useQuery({ query: PRODUCT_QUERY });
+  const { data, fetching, error } = results;
 
-  const [results] = useQuery({query: PRODUCT_QUERY})
-  const {data, fetching, error} = results
-
-  if (fetching) return <p>Loading...</p>
-  if (error) return <p>There was an error. {error.message}</p>
-  const products = data.products.data
+  if (fetching) return <p>Loading...</p>;
+  if (error) return <p>There was an error. {error.message}</p>;
+  const products = data.products.data;
 
   return (
     <div>
@@ -23,34 +26,32 @@ export default function Home() {
       </Head>
 
       <main>
-        <div className='banner'>
-        <img width="100%" src="https://i.ibb.co/0XTkjJw/banne.jpg" alt='banner' />
-        </div>
+        <div className="banner"></div>
         <Gallery>
-        {products.map(product => 
-        <Products {...product} key={product.attributes.slug}/>
-        )}
+          {products.map((product) => (
+            <Products {...product} key={product.attributes.slug} />
+          ))}
         </Gallery>
       </main>
-          <footer>
-            <div className='col-one'>
-              <p>Find us</p>
-              <p>Gift Cards</p>
-              <p>Send Us Feedback</p>
-              <p>Sign Up For Email</p>
-            </div>
-            <div className='col-two'>
-            <p>Get Help</p>
-            <p>Contact Us</p>
-            <p>Chat With Us</p>
-            </div>
+      <footer>
+        <div className="col-one">
+          <p>Find us</p>
+          <p>Gift Cards</p>
+          <p>Send Us Feedback</p>
+          <p>Sign Up For Email</p>
+        </div>
+        <div className="col-two">
+          <p>Get Help</p>
+          <p>Contact Us</p>
+          <p>Chat With Us</p>
+        </div>
 
-            <div className='col-three'>
-            <AiFillTwitterCircle style={{ margin: '0rem 0.5rem' }} size={25}/>
-            <AiFillGithub style={{ margin: '0rem 0.5rem' }}  size={25}/>
-            <AiFillLinkedin style={{ margin: '0rem 0.5rem' }}  size={25}/>
-            </div>
-          </footer>
+        <div className="col-three">
+          <AiFillTwitterCircle style={{ margin: "0rem 0.5rem" }} size={25} />
+          <AiFillGithub style={{ margin: "0rem 0.5rem" }} size={25} />
+          <AiFillLinkedin style={{ margin: "0rem 0.5rem" }} size={25} />
+        </div>
+      </footer>
     </div>
-  )
+  );
 }
