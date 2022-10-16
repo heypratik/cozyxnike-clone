@@ -1,5 +1,6 @@
 import { INTERNALS } from 'next/dist/server/web/spec-extension/request'
 import {useRouter} from 'next/router'
+import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 const {motion} = require('framer-motion')
 const stripe = require('stripe')(`${process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY}`)
@@ -13,11 +14,12 @@ export async function getServerSideProps(params) {
 }
 
 export default function Success({order}) {
+
+
     const route = useRouter()
     return (
     <Wrapper>
         <Card animate={{opacity: 1, scale: 1}} initial={{opacity: 0, scale: 0}} transition={{duration: 0.5}}>
-        <Confetti width={1920} height={1080} recycle={false} transition={{duration: 0.6}}/>
             <h1>Thank you for your order!</h1>
             <h2>A confirmation email has been sent to</h2>
             <h2>{order.customer_details.email}</h2>
@@ -34,7 +36,7 @@ export default function Success({order}) {
                     <div key ={item.id}>
                         <p>Product: {item.description}</p>
                         <p>Quantity: {item.quantity}</p>
-                        <p>Price: ${item.price.unit_amount}</p>
+                        <p>Price: ${item.price.unit_amount / 100}</p>
                     </div>
                 ))}
             </OrderInfo>
