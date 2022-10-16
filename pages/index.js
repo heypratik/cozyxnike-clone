@@ -2,6 +2,7 @@ import Head from "next/head";
 import { useQuery } from "urql";
 import { PRODUCT_QUERY } from "../lib/query";
 import Products from "../components/Products";
+import Image from "next/image";
 import { Gallery } from "../styles/Gallery";
 import {
   AiFillTwitterCircle,
@@ -26,6 +27,9 @@ export default function Home() {
       </Head>
 
       <main>
+        <div className="banner">
+          <Image src="/banne.jpg" width={1920} height={1157} />
+        </div>
         <Gallery>
           {products.map((product) => (
             <Products {...product} key={product.attributes.slug} />

@@ -13,7 +13,6 @@ import {
 import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
 import { useContext } from "react";
 import ShopContext from "../../lib/context";
-import Rating from "@mui/material/Rating";
 import {
   AiFillTwitterCircle,
   AiFillGithub,
